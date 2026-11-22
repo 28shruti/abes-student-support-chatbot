@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+chatbot_log.db
+live_cache.json
+page_dump.html
+.vscode/
+.env

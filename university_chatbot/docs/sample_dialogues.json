@@ -1,0 +1,101 @@
+[
+ {
+  "q": "How do I pay my fees online?",
+  "intent": "fees",
+  "conf": 0.996,
+  "sent": -0.103,
+  "esc": false,
+  "reasons": [],
+  "reply": "Log in to the student portal, open 'Fees > Pay Online', select the instalment and pay using UPI, net banking, debit/credit card. Download the receipt after the payment is confirmed.",
+  "ms": 5.2
+ },
+ {
+  "q": "When is the library open?",
+  "intent": "library",
+  "conf": 0.99,
+  "sent": 0.0,
+  "esc": false,
+  "reasons": [],
+  "reply": "The library is open from 8:30 AM to 8:00 PM on weekdays and 9:00 AM to 4:00 PM on Saturdays. During exams, the reading hall may stay open late; notices are put on the library door and portal.",
+  "ms": 4.0
+ },
+ {
+  "q": "Where can I download my hall ticket?",
+  "intent": "exams",
+  "conf": 0.947,
+  "sent": 0.0,
+  "esc": false,
+  "reasons": [],
+  "reply": "After filling the exam form and clearing dues, the hall ticket is available on the examination portal under 'Admit Card'. Carry a printed copy and your ID card to the exam hall.",
+  "ms": 3.6
+ },
+ {
+  "q": "what is the weather today",
+  "intent": "out_of_scope",
+  "conf": 0.914,
+  "sent": 0.0,
+  "esc": false,
+  "reasons": [],
+  "reply": "That looks outside what I can help with — I only handle university student-support topics: **admissions, schedule, fees, exams, grievance, hostel and library**. Please ask me about one of these, or type *talk to a human*.",
+  "ms": 3.5
+ },
+ {
+  "q": "You people are useless, nobody replies to my complaint, worst university ever",
+  "intent": "grievance",
+  "conf": 0.946,
+  "sent": -0.891,
+  "esc": true,
+  "reasons": [
+   "strongly negative sentiment (-0.89)"
+  ],
+  "reply": "I'm sorry you're facing this — I understand it's frustrating.\n\n🔴 **Escalated to a human support agent** — ticket **HT-95D16E**. Reason: strongly negative sentiment (-0.89). A staff member will contact you through the student portal within one working day.",
+  "ms": 4.7
+ },
+ {
+  "q": "I want to talk to a human",
+  "intent": "grievance",
+  "conf": 0.506,
+  "sent": 0.077,
+  "esc": true,
+  "reasons": [
+   "student asked for a human agent"
+  ],
+  "reply": "Sure, I'll bring a human agent into this chat.\n\n🔴 **Escalated to a human support agent** — ticket **HT-AD64D0**. Reason: student asked for a human agent. A staff member will contact you through the student portal within one working day.",
+  "ms": 4.3
+ },
+ {
+  "q": "I was ragged by seniors yesterday",
+  "intent": "grievance",
+  "conf": 0.944,
+  "sent": -0.612,
+  "esc": true,
+  "reasons": [
+   "incident report (harassment / ragging)",
+   "strongly negative sentiment (-0.61)"
+  ],
+  "reply": "I'm sorry you're facing this — I understand it's frustrating.\n\n🔴 **Escalated to a human support agent** — ticket **HT-C085CA**. Reason: incident report (harassment / ragging), strongly negative sentiment (-0.61). A staff member will contact you through the student portal as a priority.",
+  "ms": 4.4
+ },
+ {
+  "q": "my number is 9876543210 and hostel wifi not working",
+  "intent": "hostel",
+  "conf": 0.922,
+  "sent": 0.077,
+  "esc": false,
+  "reasons": [],
+  "reply": "🔒 I removed personal details (phone) from your message — please don't share such information here.\n\nRaise a maintenance request through the hostel helpdesk or inform your floor caretaker. Wifi issues can also be reported to the IT helpdesk with your block and room number.",
+  "ms": 3.8
+ },
+ {
+  "q": "I feel like I want to die",
+  "intent": "out_of_scope",
+  "conf": 0.664,
+  "sent": -0.273,
+  "esc": true,
+  "reasons": [
+   "wellbeing concern"
+  ],
+  "reply": "I'm really sorry you're feeling this way, and I'm glad you reached out. You don't have to face this alone. Please talk to someone right now: **Tele-MANAS 14416** (free, 24×7, India) or call **112** in an emergency. I'm also alerting a human counsellor from the university.\n\n🔴 **Escalated to a human support agent** — ticket **HT-C0F461**. Reason: wellbeing concern. A staff member will contact you through the student portal as a priority.",
+  "ms": 4.4
+ }
+]

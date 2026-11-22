@@ -1,0 +1,163 @@
+{
+ "synced_at": "2026-10-31 23:50",
+ "facts": {
+  "fee": {
+   "heads": [
+    [
+     "Tuition Fee",
+     110000
+    ],
+    [
+     "Career Planning & Development Fee",
+     36000
+    ],
+    [
+     "Technology and Digital Learning Support",
+     6000
+    ],
+    [
+     "Examination Fees",
+     9600
+    ],
+    [
+     "Industry Engagement & Innovation Support",
+     6000
+    ],
+    [
+     "Student Learning Resource Access & Book Bank",
+     5000
+    ],
+    [
+     "Admissions, Registration & Documentation",
+     3100
+    ],
+    [
+     "Student Welfare & Group Insurance",
+     500
+    ],
+    [
+     "Security Deposit (Refundable - One-Time)",
+     5000
+    ]
+   ],
+   "extras": [],
+   "total": 181200,
+   "session": "2026-27",
+   "programme": "B.Tech",
+   "mapping": "assumed-first-table"
+  },
+  "fee_tabs": {},
+  "hostel_boys": [
+   136500,
+   148000,
+   143000,
+   164000,
+   154500,
+   177500
+  ],
+  "hostel_girls": [
+   148000,
+   164000,
+   177500
+  ],
+  "programs": [
+   {
+    "group": "B.Tech",
+    "name": "Computer Science & Engineering",
+    "seats": 900
+   },
+   {
+    "group": "B.Tech",
+    "name": "Computer Science & Engineering (Artificial Intelligence and Machine Learning)",
+    "seats": 360
+   },
+   {
+    "group": "B.Tech",
+    "name": "Computer Science & Engineering (Data Science)",
+    "seats": 180
+   },
+   {
+    "group": "B.Tech",
+    "name": "Electronics & Communication Engineering",
+    "seats": 180
+   },
+   {
+    "group": "B.Tech",
+    "name": "Electrical and Computer Engineering",
+    "seats": 120
+   },
+   {
+    "group": "B.Tech",
+    "name": "Mechanical Engineering",
+    "seats": 60
+   },
+   {
+    "group": "B.Tech",
+    "name": "Computer Science and Engineering(Working Professional)",
+    "seats": 30
+   },
+   {
+    "group": "B.Tech",
+    "name": "Electronics and Communication Engineering (Working Professional)",
+    "seats": 30
+   },
+   {
+    "group": "Department of Computer Application",
+    "name": "MCA",
+    "seats": 180
+   },
+   {
+    "group": "Department of Computer Application",
+    "name": "BCA",
+    "seats": 120
+   },
+   {
+    "group": "M.Tech",
+    "name": "M.Tech in Computer Science and Engineering",
+    "seats": 12
+   },
+   {
+    "group": "M.Tech",
+    "name": "M.Tech in Electronics and Communication Engineering",
+    "seats": 6
+   }
+  ],
+  "documents": [
+   "Demand Draft of Academic Fee",
+   "University Allotment Letter",
+   "Result of Entrance Exam (for all) (Any one)",
+   "X Marksheet",
+   "XII Marksheet",
+   "Transfer Certificate (T.C.) (for UPBoard / UP Technical Board students)",
+   "Character Certificate",
+   "Aadhar Card (Self & Father and Mother)"
+  ],
+  "admission": [
+   "85% seats of total approved intake will be filled through Counseling based on the JEE-2026 and eligibility notified by AICTE/AKTU for the session 2026-27.",
+   "15% seats will be offered to eligible candidate through direct admissions based on the guidelines of AICTE/AKTU and as per the college policy for the session 2026-27."
+  ],
+  "refund": [
+   "In case of cancellation of admission, fee will be refunded as per UGC refund rules.",
+   "In case of withdrawal from hostel, only Security, Mess & laundry charges (for unutilized months) are refundable on a pro rata basis."
+  ],
+  "payment": {
+   "modes": [
+    "1 Payment Gateway at ERP Admission Portal",
+    "2 Jodo Link & QR Code",
+    "3 Bank Draft (in favor of “ABES Engineering College”, Ghaziabad or Delhi)",
+    "4 RTGS/NEFT in Punjab National Bank, Navyug Market, Ghaziabad"
+   ],
+   "restriction": "Cheques and cash payments are not accepted for Academic Fees."
+  },
+  "enquiry": [
+   [
+    "B.Tech 1st year (Direct Admission)",
+    "8448494111"
+   ],
+   [
+    "MCA",
+    "8448494111 8860092369 8860086492"
+   ]
+  ]
+ }
+}

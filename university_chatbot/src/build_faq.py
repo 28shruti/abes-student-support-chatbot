@@ -1,0 +1,162 @@
+"""Builds data/faq_knowledge_base.csv. CONTENT IS SAMPLE – replace answers with your university's real policies."""
+import csv, pathlib
+F = [
+("admissions","How do I apply for admission?","how to apply for a seat|apply online for the course|admission application process",
+ "Applications are submitted online through the university admission portal: register with your email, fill the form, upload the required documents and pay the application fee. You will receive a confirmation e-mail with your application number."),
+("admissions","What documents are required for admission?","documents needed for admission|which certificates do I need|list of documents to upload",
+ "Keep scanned copies of your 10th and 12th marksheets, a transfer/migration certificate, a government photo ID, recent passport-size photographs and your entrance-exam scorecard (if applicable). Originals are verified at the time of reporting."),
+("admissions","What is the last date to apply?","application deadline|last date for admission form|when does admission close",
+ "The last date is announced on the admission portal for every intake and may differ by programme. Please check the 'Important Dates' section of the portal for the current deadline."),
+("admissions","What are the eligibility criteria for UG and PG programmes?","am I eligible for btech|minimum marks required to apply|eligibility for MCA MBA",
+ "UG programmes generally need a pass in 10+2 with the subjects required by the programme and the minimum aggregate marks specified in the prospectus; PG programmes need a relevant bachelor's degree. Exact percentages are listed per programme in the prospectus."),
+("admissions","How can I check my application or admission status?","admission status|track my application|has my application been accepted",
+ "Log in to the admission portal with your application number and password and open the 'Application Status' tab. Status updates (shortlisted, document verification, confirmed) are also e-mailed."),
+("admissions","Are scholarships available for new students?","scholarship for admission|merit scholarship|financial aid for new applicants",
+ "Merit-based and need-based scholarships are available. Apply through the scholarship section of the portal after receiving your offer; the scholarship office publishes eligibility rules every year."),
+("admissions","How do I cancel or withdraw my admission?","cancel admission|withdraw from the programme|refund after admission cancellation",
+ "Submit a written withdrawal request to the admission office with your ID card and fee receipts. Refund of fees depends on the date of withdrawal as per the university refund policy."),
+("admissions","Can I transfer from another college or change my branch?","lateral entry|branch change|transfer to your university",
+ "Lateral entry and credit transfer are considered for eligible diploma holders and transferring students subject to seat availability. Branch change requests are accepted after the first year, based on CGPA and available seats."),
+
+("schedule","Where can I find my class timetable?","class timetable|weekly schedule|time table kaha milega",
+ "Your timetable is published on the student portal under 'Academics > Timetable' and is also shared by your department notice board. Updates are notified through the portal and student e-mail."),
+("schedule","When does the semester start and end?","academic calendar|semester dates|when does the next semester begin",
+ "The academic calendar with semester start, end, exam and vacation dates is published on the university website under 'Academics > Academic Calendar' at the beginning of each academic year."),
+("schedule","Where can I find the holiday list?","list of holidays|is tomorrow a holiday|university holidays",
+ "The official holiday list is part of the academic calendar. Any sudden holiday is announced through the portal and official student e-mail."),
+("schedule","How will I know if a class is cancelled or rescheduled?","lecture cancelled|class timing changed|notifications for class changes",
+ "Class changes are posted on the student portal and sent via e-mail/SMS by the department. Please enable notifications on the portal to receive them on time."),
+("schedule","What is the laboratory schedule?","lab timetable|practical schedule|lab batch timings",
+ "Lab batches and timings are listed in the department timetable. Your lab coordinator shares batch-wise slots at the start of the semester."),
+("schedule","What are the university office and working hours?","office timings|college working hours|when is the admin office open",
+ "Academic and administrative offices are generally open Monday to Friday, 9:30 AM to 5:00 PM, and until 1:00 PM on Saturdays. Departments may have slightly different counters."),
+("schedule","When are the vacations and breaks?","semester break|winter vacation dates|summer break",
+ "Vacation periods are mentioned in the academic calendar. Typically there is a winter break, a mid-year break and a summer vacation; exact dates are announced each year."),
+("schedule","How do I book an appointment with a professor?","faculty office hours|meet my professor|appointment with teacher",
+ "Faculty publish weekly office hours outside their rooms and on the portal. You can request a slot by e-mail or through the portal's 'Meet Faculty' option."),
+
+("fees","How do I pay my tuition fees online?","pay fees online|online fee payment|how to pay college fee",
+ "Log in to the student portal, open 'Fees > Pay Online', select the instalment and pay using UPI, net banking, debit/credit card. Download the receipt after the payment is confirmed."),
+("fees","What is the last date for fee payment?","fee due date|fee deadline|when is the fee instalment due",
+ "Due dates for each instalment are shown on your fee challan and on the portal's 'Fees' dashboard. Please pay before the due date to avoid a late fee."),
+("fees","Is there a late fee penalty?","fine for late fee|penalty for delayed payment|what if I pay fee after deadline",
+ "A late fee per day (as notified by the accounts office) applies after the due date. Repeated delays may block access to exam forms; contact the accounts office if you need an extension."),
+("fees","What is the fee structure for my programme?","how much is the fee|fees kitni hai|total cost of the course|annual tuition fee|fee for first year",
+ "The programme-wise fee structure (tuition, development fee, exam fee and other charges) is published on the admission portal under 'Fee Structure' and in the prospectus. Hostel and mess charges are separate."),
+("fees","Can I pay my fees in instalments?","fee instalments|pay in two parts|part payment of fee",
+ "Yes. Fees can be paid semester-wise, and the accounts office can approve an instalment plan on written request with valid reasons."),
+("fees","How do I get a fee receipt or fee certificate?","fee receipt download|certificate for education loan|proof of fee payment",
+ "Receipts can be downloaded from the portal under 'Fees > Payment History'. For a fee certificate (e.g., for bank loans) apply at the accounts office or through the portal's 'Certificates' section."),
+("fees","What is the refund policy?","fee refund|get my money back|refund on withdrawal",
+ "Refunds are made according to the date of withdrawal (higher refund for earlier withdrawal) after deducting processing charges. Excess or duplicate payments are refunded to the original payment source after verification."),
+("fees","My payment failed but money was deducted. What should I do?","payment deducted but not updated|fee shows pending after payment|double payment",
+ "Please wait 24-48 hours as banks usually auto-reverse failed transactions. If the fee still shows pending, e-mail the accounts office with the transaction ID and screenshot (do not share card numbers)."),
+("fees","Are fee waivers or scholarships available?","fee concession|scholarship fee waiver|discount in fees",
+ "Fee concessions are available for meritorious and economically weaker students. Applications are accepted through the scholarship section with income and merit documents."),
+
+("exams","When will the exam timetable be released?","exam schedule|date sheet|when are the exams",
+ "The examination timetable is usually released 3-4 weeks before the exams on the examination portal and the university website."),
+("exams","How do I download my hall ticket or admit card?","hall ticket download|admit card|exam entry pass",
+ "After filling the exam form and clearing dues, the hall ticket is available on the examination portal under 'Admit Card'. Carry a printed copy and your ID card to the exam hall."),
+("exams","How do I apply for re-evaluation?","revaluation of answer sheet|recheck my marks|apply for re-evaluation",
+ "Apply on the examination portal within the window announced after results, select the subjects and pay the re-evaluation fee per paper. Revised results are published on the portal."),
+("exams","When will the results be declared?","semester result date|exam results|result kab aayega",
+ "Results are normally declared within 30-45 days of the last exam. The date is announced on the examination portal and student e-mail."),
+("exams","What is the minimum attendance required for exams?","attendance criteria|detention for low attendance|75 percent attendance rule",
+ "A minimum of 75% attendance in each subject is generally required to appear in exams. Medical or condonation requests can be submitted to the Head of Department with supporting documents."),
+("exams","What are the passing marks and grading system?","passing marks|how is CGPA calculated|grading scheme",
+ "A student must usually score at least 40% in each subject (including internal and external components). Grades are converted into grade points on a 10-point scale and CGPA is the credit-weighted average."),
+("exams","How do I apply for a backlog or supplementary exam?","backlog exam form|supplementary exam|fail in one subject",
+ "Fill the backlog/supplementary exam form on the examination portal during the notified window and pay the exam fee for each subject you want to reappear in."),
+("exams","How can I get my marksheet or transcript?","duplicate marksheet|official transcript|provisional degree certificate",
+ "Apply for marksheets, transcripts and provisional certificates through the examination portal's 'Certificates' section or at the examination cell with the prescribed fee and ID proof."),
+
+("grievance","How do I file a complaint or grievance?","raise a complaint|register grievance|where to submit complaint",
+ "Submit your grievance through the 'Student Grievance' form on the portal or in writing at the grievance cell. You will get a ticket number to track it. Our human support team handles all grievances."),
+("grievance","How can I report harassment or ragging?","report ragging|sexual harassment complaint|bullying on campus",
+ "Harassment and ragging are serious offences and are handled confidentially. You can contact the Internal Complaints Committee / Anti-Ragging Committee directly; the national anti-ragging helpline is 1800-180-5522. I am also alerting a human support agent now."),
+("grievance","How long does grievance resolution take?","time to resolve complaint|when will my complaint be solved|grievance resolution time",
+ "Most grievances are acknowledged within 2 working days and resolved within 15 working days. Complex cases may take longer, and you will be informed of progress."),
+("grievance","How can I track my complaint status?","complaint status|track my grievance ticket|status of my complaint",
+ "Use your grievance ticket number on the portal under 'Grievance > Track Status'. You will also get e-mail updates when the status changes."),
+("grievance","What if my complaint is not resolved?","escalate complaint|appeal against decision|complaint to dean",
+ "You can escalate to the Head of Department, then the Dean (Student Affairs), and finally the Grievance Redressal Committee / Ombudsman. A human agent can help you with the escalation."),
+("grievance","Can I complain anonymously?","anonymous complaint|complaint box|report without my name",
+ "Yes. Anonymous complaints can be dropped in the complaint boxes or submitted through the anonymous option on the portal. Providing details helps investigators act faster."),
+("grievance","Who is the grievance officer?","grievance redressal officer|contact for complaints|who to contact for student issues",
+ "The Grievance Redressal Officer is listed on the 'Student Support' page with contact details. Our human support team can also direct your case to the correct officer."),
+("grievance","Is counselling support available?","student counselling|mental health support|I feel stressed",
+ "Yes, free and confidential counselling is available at the Student Wellness Centre. If you are in distress, Tele-MANAS (14416) offers free 24x7 support in India. Would you like me to connect you to a human counsellor?"),
+
+("hostel","How do I apply for a hostel room?","hostel application|get hostel accommodation|hostel mein room kaise milega",
+ "Apply through the 'Hostel' section of the student portal after confirming admission. Rooms are allotted according to availability and the university allotment policy; the allotment letter is issued online."),
+("hostel","What is the hostel fee?","hostel charges|room rent per semester|security deposit for hostel",
+ "Hostel fees (room rent, mess advance and a refundable security deposit) are listed in the fee structure document on the portal and vary by room type."),
+("hostel","What are the hostel gate timings?","hostel curfew|gate closing time|late night entry hostel",
+ "The hostel gate usually closes at 9:30 PM for first-years and 10:30 PM for senior students. Late entry needs prior approval from the warden."),
+("hostel","What is the mess menu and how do I raise mess complaints?","mess food menu|today's mess menu|mess charges",
+ "The weekly mess menu is displayed at the mess and on the hostel notice board. Complaints can be raised with the mess committee or the warden, and unresolved issues can be escalated to the Chief Warden."),
+("hostel","How can I change my hostel room?","room change|shift to another room|change roommate",
+ "Submit a room-change request to the warden with a valid reason. Changes are approved subject to vacancy and are processed once per semester."),
+("hostel","Are visitors allowed in the hostel?","visitor policy|guest in hostel|can parents stay in hostel",
+ "Visitors are allowed only in the designated visitors' lounge during visiting hours after signing the register. Overnight stay is not permitted."),
+("hostel","Who do I contact for maintenance, wifi or water problems?","hostel wifi not working|room fan repair|water supply problem",
+ "Raise a maintenance request through the hostel helpdesk or inform your floor caretaker. Wifi issues can also be reported to the IT helpdesk with your block and room number."),
+("hostel","How do I vacate or surrender my hostel room?","hostel vacating procedure|surrender hostel seat|leave hostel",
+ "Submit a vacating form to the warden, clear dues and return the room keys. The security deposit is refunded after clearance."),
+
+("library","What are the library timings?","library opening hours|library kab tak khuli rehti hai|is library open on weekends",
+ "The library is open from 8:30 AM to 8:00 PM on weekdays and 9:00 AM to 4:00 PM on Saturdays. During exams, the reading hall may stay open late; notices are put on the library door and portal."),
+("library","How many books can I borrow and for how long?","borrowing limit|how long can I keep a book|number of books issued",
+ "UG students can borrow up to 4 books and PG/research students up to 6 books for 14 days, renewable once if not reserved by someone else."),
+("library","How do I renew a book online?","renew library book|extend book return date|online renewal",
+ "Log in to the library OPAC with your student ID, open 'My Account', select the book and click 'Renew'. Renewal is possible only if the book is not reserved and not overdue."),
+("library","What is the fine for late return?","late fee for library book|overdue book fine|fine for returning book late",
+ "A fine of Rs. 2 per day per book is charged for overdue books. Fines can be paid at the library counter or through the portal."),
+("library","Can I access e-journals and digital resources from home?","IEEE access|online journals|digital library remote access",
+ "Yes. Log in through the library's remote-access page using your university credentials to read subscribed e-journals, e-books and databases from anywhere."),
+("library","What should I do if I lose or damage a book?","lost library book|book damaged|replacement of lost book",
+ "Inform the librarian immediately. You will need to replace the book with the same edition or pay its current cost plus a processing fee."),
+("library","How do I book a study room or discussion room?","reserve study room|group study room|library seat reservation",
+ "Reserve a study room on the library portal under 'Facilities' for up to 2 hours per day. Show your ID at the counter on arrival."),
+("library","How can I request a new book for the library?","suggest a book purchase|request to buy book|book not available in library",
+ "Fill the 'Recommend a Book' form on the library portal or at the counter. The library committee reviews recommendations every month."),
+]
+EXTRA = [
+("library","How do I get a library membership card?","library card chahiye|issue library card|new library id card|mujhe library card chahiye",
+ "Library cards are issued at the library counter on showing your student ID and one photograph; new students usually get them during orientation week. A lost card can be replaced for a small fee."),
+("library","Is the library open on Sundays?","library sunday|library open on holidays|sunday ko library khuli hai kya",
+ "The library is closed on Sundays and public holidays. During exam weeks the reading hall may open on Sundays - please check the library notice board and portal."),
+("hostel","What are the mess timings?","mess timing kya hai|breakfast lunch dinner time|when is dinner in mess|mess kab khulta hai",
+ "The mess serves breakfast 7:30-9:00 AM, lunch 12:30-2:30 PM, snacks 5:00-6:00 PM and dinner 7:30-9:30 PM."),
+]
+ALT = {  # extra Hinglish / casual phrasings for existing FAQs (matched by start of question)
+ "What are the university office": "college timing kya hai|college timings|what time does college start|college kitne baje khulta hai",
+ "When will the exam timetable": "exam kab hai|exam kab hoga|exams kab se shuru honge|date of exams|exam date",
+ "How do I download my hall ticket": "hall ticket kaise download kare|admit card kaise milega|hall ticket kahan se milega",
+ "How do I pay my tuition fees online": "fees kaise bharni hai|fees kaise jama kare|online fees kaise pay kare",
+ "How many books can I borrow": "library mein kitni books mil sakti hain|kitni books issue ho sakti hain|book kitne din ke liye milti hai",
+ "How do I file a complaint": "shikayat kahan kare|complaint kaise kare|shikayat kaise darj kare",
+ "How do I apply for a hostel room": "hostel mein room kaise milega|hostel ke liye apply kaise kare|hostel form",
+ "What are the library timings": "library kab khulti hai|library kitne baje band hoti hai|library time",
+ "What is the fee structure": "fees kitni hai|kitni fees lagti hai|course ki fees|btech fee|b.tech fee structure|bca fee|bca fees|mca fee|mca fees|m.tech fee|mtech fees|lateral entry fee|working professional fee|fee for bca course|fee for mca course|annual fee",
+ "When will the results be declared": "result kab aayega|result kab aata hai|result date",
+ "How do I apply for admission": "admission kaise le|admission kaise milega|form kaise bharna hai",
+}
+F = F + EXTRA
+F = [(a, q, alt + ("|" + next((v for k, v in ALT.items() if q.startswith(k)), "")).rstrip("|"), ans) for a, q, alt, ans in F]
+out = pathlib.Path(__file__).resolve().parent.parent/"data"/"faq_knowledge_base.csv"
+import sys; sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from abes_data import OVERRIDE, NEW
+SAMPLE = "SAMPLE - verify with university"
+rows = [[it, q, alt, a, SAMPLE] for it, q, alt, a in F]
+used = set()
+for r in rows:                                   # real ABES answers replace the generic sample ones
+    for key, (src, ans) in OVERRIDE.items():
+        if r[1].startswith(key): r[3], r[4] = ans, src; used.add(key)
+assert used == set(OVERRIDE), set(OVERRIDE) - used
+rows += [[it, q, alt, a, src] for it, q, alt, a, src in NEW]
+with open(out,"w",newline="",encoding="utf-8") as f:
+    w=csv.writer(f); w.writerow(["faq_id","intent","question","alt_questions","answer","source"])
+    for i,r in enumerate(rows,1): w.writerow([f"FAQ{i:03d}"]+r)
+print(len(rows),"FAQs ->",out, "| ABES-sourced:", sum(r[4]!=SAMPLE for r in rows))

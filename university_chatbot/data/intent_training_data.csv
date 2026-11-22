@@ -1,0 +1,289 @@
+utterance,intent,split
+How do I apply for admission to the university?,admissions,train
+What documents are needed for admission?,admissions,train
+What is the last date to submit the application form?,admissions,train
+Am I eligible for the B.Tech program with 60 percent in 12th?,admissions,train
+How can I check my admission status?,admissions,train
+When will the merit list be published?,admissions,test
+Is there any entrance exam for MBA admission?,admissions,train
+"I want to cancel my admission, what is the process?",admissions,train
+Can I transfer from another college to your university?,admissions,train
+What is the cutoff for computer science seats?,admissions,test
+How do I upload my 12th marksheet in the application portal?,admissions,train
+Is lateral entry available for diploma holders?,admissions,train
+Do you offer scholarships for new applicants?,admissions,test
+How many seats are there in the CSE branch?,admissions,train
+What is the counselling schedule for new students?,admissions,train
+"I forgot my application number, how do I recover it?",admissions,train
+Can international students apply here?,admissions,train
+What is the application fee for PG courses?,admissions,train
+Where do I submit original certificates after getting selected?,admissions,train
+how to get admsion in your university,admissions,test
+admission form kab tak bharna hai,admissions,train
+Is the admission open for this year?,admissions,train
+Which courses are available for undergraduate admission?,admissions,test
+Do I need to appear for an interview during admission?,admissions,train
+"My application is showing incomplete, what should I do?",admissions,train
+What is the age limit for applying to the PhD programme?,admissions,test
+Can I change my branch after admission?,admissions,train
+How do I get my admission confirmation letter?,admissions,test
+Is there a management quota for admissions?,admissions,train
+What are the eligibility criteria for MCA?,admissions,train
+Tell me about the admission process for 2026,admissions,test
+Do you accept CUET scores for admission?,admissions,train
+how can i apply for a seat in btech,admissions,test
+Will there be a second round of seat allotment?,admissions,train
+What is the minimum percentage required to apply?,admissions,train
+Can I defer my admission to next year?,admissions,train
+Where can I see my class timetable?,schedule,train
+When does the next semester start?,schedule,train
+Is there a holiday tomorrow?,schedule,train
+Has today's lecture been cancelled?,schedule,train
+What is the academic calendar for this year?,schedule,test
+What time does my first class begin on Monday?,schedule,test
+When is the Diwali vacation?,schedule,test
+I need the lab schedule for the electronics practical.,schedule,test
+How can I book an appointment with my professor?,schedule,train
+What are the college working hours?,schedule,train
+Is the timetable available on the student portal?,schedule,test
+When will the classes resume after the break?,schedule,train
+Which room is my data structures class in?,schedule,train
+Can you tell me the schedule for the guest lecture?,schedule,train
+when is the semester break,schedule,train
+What are the office timings of the department?,schedule,train
+Has the class been rescheduled to another day?,schedule,train
+Please share the weekly timetable for 3rd year CSE.,schedule,train
+When is the college fest happening?,schedule,test
+Are classes held on Saturdays?,schedule,train
+What is the last working day of this semester?,schedule,test
+How do I get notifications about class changes?,schedule,train
+Will there be a lecture on the public holiday?,schedule,train
+When does the orientation programme start?,schedule,test
+Show me the schedule for tomorrow's classes,schedule,train
+What is the timing for the morning batch?,schedule,train
+"I missed the class schedule email, where else can I find it?",schedule,train
+time table kaha milega,schedule,train
+When is the next faculty office hour?,schedule,train
+Are online classes scheduled this week?,schedule,train
+What are the dates for the winter break?,schedule,train
+How long is each lecture period?,schedule,test
+When is the project review meeting scheduled?,schedule,train
+Is there any change in the timetable for next week?,schedule,train
+What day does the semester end?,schedule,train
+At what time does the seminar start today?,schedule,train
+How do I pay my tuition fees online?,fees,train
+What is the last date for fee payment?,fees,test
+Is there a late fee penalty if I pay after the deadline?,fees,train
+Can I pay the fees in instalments?,fees,train
+I need a receipt for my fee payment.,fees,test
+What is the refund policy if I withdraw?,fees,train
+How much is the annual fee for B.Com?,fees,test
+My payment failed but money got deducted from my account.,fees,train
+Is there a fee waiver for students with scholarship?,fees,train
+What are the different modes of fee payment?,fees,test
+How do I get a fee structure document?,fees,train
+Can I pay the semester fee via UPI?,fees,train
+Why was I charged an extra amount in my fee challan?,fees,train
+What is the exam fee for this semester?,fees,train
+"I paid twice by mistake, how do I get a refund?",fees,train
+fees kitni hai first year ki,fees,test
+Where do I download my fee challan?,fees,test
+How can I pay fees through a bank demand draft?,fees,train
+Is there any discount for paying the full year fee at once?,fees,test
+My fee status still shows pending even after payment.,fees,train
+What is the caution deposit and is it refundable?,fees,train
+Do I have to pay fees again for supplementary exams?,fees,train
+Is the hostel fee included in the tuition fee?,fees,train
+Can I get an extension on the fee deadline?,fees,train
+What happens if I do not pay the fee on time?,fees,train
+How to get a fee certificate for the education loan?,fees,test
+What is the fee for the diploma course?,fees,train
+Tell me the total cost of the MBA programme.,fees,train
+Can I make a part payment now and rest later?,fees,train
+How to pay college fees using net banking,fees,train
+Where can I see my fee payment history?,fees,train
+Is GST charged on the tuition fee?,fees,test
+Fee payment link is not working,fees,train
+What is the fine for delayed fee submission?,fees,train
+Do you have education loan tie ups with banks?,fees,train
+when is the next fee instalment due,fees,train
+When will the exam timetable be released?,exams,train
+How do I download my hall ticket?,exams,train
+How can I apply for re-evaluation of my answer sheet?,exams,train
+When will the semester results be declared?,exams,test
+What is the minimum attendance required to appear in exams?,exams,train
+What are the passing marks for a subject?,exams,test
+How do I apply for the backlog exam?,exams,test
+How can I get my official marksheet?,exams,train
+Is the exam going to be open book?,exams,train
+"I could not take the exam due to illness, can I appear for a makeup?",exams,train
+What is the exam pattern for the end semester?,exams,train
+How do I check my internal assessment marks?,exams,train
+Where can I get the previous year question papers?,exams,train
+What happens if I fail in one subject?,exams,train
+"My admit card has a wrong photo, who should I contact?",exams,test
+result kab aayega,exams,train
+How can I get a duplicate marksheet?,exams,train
+What is the grading system followed by the university?,exams,train
+Can I see my evaluated answer sheet?,exams,train
+When is the last date to fill the exam form?,exams,test
+How do I calculate my CGPA?,exams,train
+Are calculators allowed in the examination hall?,exams,train
+What is the revaluation fee per paper?,exams,test
+How do I apply for a transcript for higher studies?,exams,train
+Is there a supplementary exam for failed students?,exams,train
+"My exam centre is far from my home, can I change it?",exams,train
+How are the practical exams conducted?,exams,test
+When are the mid-term exams?,exams,train
+What is the syllabus for the final exam?,exams,train
+How to apply for a provisional degree certificate,exams,train
+What is the detention criteria for low attendance in exams?,exams,train
+How many attempts do I get to clear a backlog?,exams,train
+Will the exam be held online or offline?,exams,train
+"I got zero in the viva by mistake, how to correct marks?",exams,test
+When will the revaluation result come out?,exams,train
+What do I need to carry to the exam hall?,exams,test
+I want to file a complaint against a faculty member.,grievance,train
+How do I report harassment on campus?,grievance,test
+How long does it take to resolve a grievance?,grievance,train
+How can I track the status of my complaint?,grievance,train
+Who is the grievance redressal officer?,grievance,test
+Can I raise a complaint anonymously?,grievance,train
+My marks were wrongly entered and nobody is helping me.,grievance,train
+I have a complaint about the hostel warden's behaviour.,grievance,train
+Where do I submit a written complaint?,grievance,train
+"My earlier complaint has not been resolved yet, what next?",grievance,train
+"I was ragged by seniors, what should I do?",grievance,train
+How do I escalate an unresolved issue to the dean?,grievance,test
+There is a problem with the way my department treats students.,grievance,train
+Is there a student ombudsman I can contact?,grievance,train
+I want to lodge a complaint about unfair grading.,grievance,train
+shikayat kahan darj kare,grievance,test
+Is there a committee for women's safety on campus?,grievance,train
+"I feel discriminated against in class, who can help?",grievance,train
+How do I report a case of bullying?,grievance,test
+What is the procedure to file an RTI or formal grievance?,grievance,train
+I am not satisfied with the response to my previous complaint.,grievance,train
+Can I get counselling support for stress?,grievance,train
+"Staff at the admin office was very rude to me, I want to report it.",grievance,train
+How to complain about poor facilities in the classroom?,grievance,train
+Where is the complaint box located?,grievance,train
+Is there an anti-ragging helpline number?,grievance,test
+I need to report a safety issue in the campus parking area.,grievance,train
+How do I register a grievance online?,grievance,train
+My complaint ticket was closed without any solution.,grievance,test
+Who do I contact if a professor is not teaching properly?,grievance,train
+I want to appeal against the disciplinary action taken against me.,grievance,train
+What is the escalation matrix for student complaints?,grievance,train
+My scholarship money has not come and nobody is responding to me.,grievance,test
+How to submit feedback or a suggestion about campus services?,grievance,test
+Can parents file a grievance on behalf of a student?,grievance,train
+I want to speak up about misconduct by a lab assistant.,grievance,train
+How do I apply for a hostel room?,hostel,test
+What is the hostel fee per semester?,hostel,test
+What are the hostel gate closing timings?,hostel,train
+What is today's mess menu?,hostel,train
+How can I change my hostel room?,hostel,train
+Are visitors allowed in the hostel?,hostel,train
+The wifi in my hostel is not working.,hostel,train
+What is the procedure for vacating the hostel?,hostel,test
+Is there a separate hostel for girls?,hostel,train
+Can I stay in the hostel during vacations?,hostel,test
+"The water supply in my block has stopped, whom to inform?",hostel,train
+How do I get a hostel allotment letter?,hostel,train
+What items are not allowed inside hostel rooms?,hostel,test
+Is laundry service available in the hostel?,hostel,train
+How can I get an out-pass to go home for the weekend?,hostel,train
+hostel mein room kaise milega,hostel,train
+What is the security deposit for the hostel?,hostel,train
+Is there a gym or common room in the hostel?,hostel,train
+"My room fan needs repair, how do I raise a maintenance request?",hostel,train
+Can first-year students choose a roommate?,hostel,test
+What are the mess charges per month?,hostel,train
+Is non-vegetarian food served in the mess?,hostel,train
+How to apply for a single occupancy room?,hostel,train
+What is the late night entry policy for hostel students?,hostel,test
+Can I bring my own laptop and mini fridge to the hostel?,hostel,train
+Who is the hostel warden and how do I contact them?,hostel,train
+Is there a medical facility near the hostel?,hostel,train
+How do I apply for off-campus accommodation permission?,hostel,train
+Can I get a hostel seat mid-semester?,hostel,train
+What are the rules for hostel guests staying overnight?,hostel,test
+Is the hostel available for PG students?,hostel,train
+"The room heater is broken, please help",hostel,train
+When does hostel registration open?,hostel,train
+How do I surrender my hostel seat?,hostel,train
+What are the hostel curfew rules on weekends?,hostel,train
+"How is the hostel room allotted, by merit or first come?",hostel,test
+What are the library opening hours?,library,train
+How many books can I borrow at a time?,library,train
+How do I renew a book online?,library,train
+What is the fine for returning a book late?,library,train
+Can I access e-journals from home?,library,train
+"I lost a library book, what should I do?",library,test
+How do I book a study room in the library?,library,train
+Can I request the library to buy a new book?,library,train
+How do I get my library membership card?,library,train
+Is there a digital library with ebooks?,library,test
+How long can I keep a book before returning?,library,train
+Does the library have previous year question papers?,library,test
+How do I search for a book in the library catalogue?,library,train
+Is photocopying available in the library?,library,test
+Can I reserve a book that someone else has issued?,library,train
+library kab tak khuli rehti hai,library,train
+Does the library provide access to IEEE and Springer papers?,library,train
+How do I reset my library portal password?,library,train
+Is the library open during exam time late at night?,library,train
+What is the library silence policy?,library,train
+Can alumni use the university library?,library,train
+How to get a no-dues certificate from the library?,library,train
+Is there a limit on the number of reference books I can take?,library,train
+Where is the reading hall located?,library,test
+Can I use my own laptop inside the library?,library,test
+How do I download my thesis from the institutional repository?,library,train
+Does the library offer inter-library loan?,library,train
+How can I pay the library fine online?,library,train
+Can I borrow a journal issue from the periodicals section?,library,train
+Is there wifi in the library?,library,test
+What happens if I damage a library book?,library,test
+How do I join the library newsletter or book club?,library,train
+Can I issue a book using someone else's card?,library,test
+How do I access the NPTEL or online course material through the library?,library,train
+Do you have a book on machine learning in the library?,library,train
+What is the procedure to return books at the end of the semester?,library,train
+What is the weather like today?,out_of_scope,train
+Who won the cricket match yesterday?,out_of_scope,train
+Write a python program to reverse a string.,out_of_scope,train
+Tell me a joke.,out_of_scope,train
+What is the capital of France?,out_of_scope,train
+Suggest a good pizza place nearby.,out_of_scope,train
+How do I book a flight ticket?,out_of_scope,train
+Explain quantum physics to me.,out_of_scope,train
+Recommend a good movie to watch.,out_of_scope,train
+What is the price of bitcoin?,out_of_scope,test
+How do I cook pasta?,out_of_scope,train
+Play some music.,out_of_scope,test
+Who is the prime minister of India?,out_of_scope,test
+What is the meaning of life?,out_of_scope,train
+Can you help me write my assignment?,out_of_scope,train
+What's the latest news?,out_of_scope,train
+Translate good morning into French.,out_of_scope,train
+How do I lose weight fast?,out_of_scope,train
+Which phone should I buy?,out_of_scope,test
+Solve this integral for me.,out_of_scope,train
+Do you like football?,out_of_scope,test
+What is the stock market doing today?,out_of_scope,train
+Tell me about the solar system.,out_of_scope,train
+How to get a job at Google?,out_of_scope,test
+Order food for me.,out_of_scope,test
+What time is sunset today?,out_of_scope,train
+Who is your favourite actor?,out_of_scope,train
+Can you sing a song?,out_of_scope,train
+How do I fix my bike?,out_of_scope,test
+Give me a recipe for biryani.,out_of_scope,train
+What is the score of the IPL match?,out_of_scope,train
+How to invest in mutual funds?,out_of_scope,train
+Draw a picture of a cat.,out_of_scope,train
+What is the population of India?,out_of_scope,test
+Is it going to rain tomorrow?,out_of_scope,train
+Plan a trip to Goa for me.,out_of_scope,train

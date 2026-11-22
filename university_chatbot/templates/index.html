@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ABES Assist – AI-Powered Student Support</title>
+<style>
+:root{--bg:#e9edf5;--card:#fff;--ink:#1b2236;--mut:#7a859c;--pri:#2f5bea;--pri2:#5b82ff;--bot:#f1f4fb;--bd:#e3e8f2;--red:#d92d20;--redbg:#fff1f0;--ok:#16a34a;--shadow:0 12px 40px rgba(30,45,90,.16)}
+@media(prefers-color-scheme:dark){:root{--bg:#0b101b;--card:#141b2b;--ink:#e8ecf6;--mut:#8b96ae;--pri:#5b82ff;--pri2:#7d9bff;--bot:#1d2740;--bd:#26324d;--red:#ff7a70;--redbg:#3a1f24;--shadow:0 12px 40px rgba(0,0,0,.5)}}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center}
+.chat{width:100vw;max-width:none;height:100vh;background:var(--card);display:flex;flex-direction:column;border-radius:20px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+@media(max-width:480px){.chat{width:100vw;max-width:none;height:100vh;border-radius:0}}
+/* header */
+.top{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff}
+.av{width:42px;height:42px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex:none;position:relative}
+.av i{position:absolute;right:0;bottom:0;width:11px;height:11px;border-radius:50%;background:#22c55e;border:2px solid #fff}
+.top h1{margin:0;font-size:16px;font-weight:650}
+.top small{opacity:.9;font-size:12px}
+.grow{flex:1}
+.ib{background:rgba(255,255,255,.18);border:0;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1}
+.ib:hover{background:rgba(255,255,255,.3)}
+.menu{position:absolute;right:12px;top:60px;background:var(--card);border:1px solid var(--bd);border-radius:12px;box-shadow:var(--shadow);padding:6px;display:none;z-index:5;min-width:230px}
+.menu.open{display:block}
+.menu button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:10px 12px;border-radius:8px;font-size:14px;cursor:pointer}
+.menu button:hover{background:var(--bot)}
+/* privacy strip */
+.note{font-size:11.5px;color:var(--mut);background:var(--bot);padding:7px 14px;display:flex;gap:8px;align-items:center;justify-content:space-between}
+.note button{background:none;border:0;color:var(--mut);cursor:pointer;font-size:14px}
+/* messages */
+.msgs{flex:1;overflow-y:auto;padding:16px 14px 6px;display:flex;flex-direction:column;gap:6px;scroll-behavior:smooth}
+.day{align-self:center;font-size:11px;color:var(--mut);background:var(--bot);padding:3px 10px;border-radius:999px;margin-bottom:6px}
+.row{display:flex;align-items:flex-end;gap:8px;max-width:100%}
+.row.u{justify-content:flex-end}
+.mini{width:28px;height:28px;border-radius:50%;background:var(--bot);display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+.mini.hide{visibility:hidden}
+.bub{max-width:78%;padding:9px 13px;font-size:14.5px;line-height:1.45;word-wrap:break-word;white-space:pre-wrap}
+.b .bub{background:var(--bot);border-radius:16px 16px 16px 4px}
+.u .bub{background:var(--pri);color:#fff;border-radius:16px 16px 4px 16px}
+.time{font-size:10.5px;color:var(--mut);margin:0 6px 4px 42px}
+.time.r{text-align:right;margin:0 6px 4px 0}
+.bub b{font-weight:650}
+/* handoff card */
+.hand{margin:6px 0 0;border:1px solid var(--red);background:var(--redbg);border-radius:12px;padding:10px 12px;font-size:13px;white-space:normal}
+.hand .h{display:flex;align-items:center;gap:6px;font-weight:650;color:var(--red);margin-bottom:4px}
+.hand .t{display:inline-block;margin-top:6px;background:var(--card);border:1px dashed var(--red);border-radius:8px;padding:2px 8px;font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+/* typing */
+.typing .bub{display:flex;gap:4px;padding:13px 14px}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--mut);animation:bl 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 8px 36px}
+.chip{background:var(--card);color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer}
+.chip:hover{background:var(--pri);color:#fff}
+/* rating */
+.rate{align-self:center;background:var(--bot);border-radius:14px;padding:10px 16px;text-align:center;font-size:13px;color:var(--mut);margin:6px 0}
+.rate .s button{background:none;border:0;font-size:26px;cursor:pointer;color:#c3cadb;padding:0 2px}
+.rate .s button.on{color:#f5a623}
+/* composer */
+.comp{display:flex;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid var(--bd);background:var(--card)}
+.comp input{flex:1;border:1px solid var(--bd);background:var(--bot);color:var(--ink);border-radius:999px;padding:12px 16px;font-size:14.5px;outline:none}
+.comp input:focus{border-color:var(--pri)}
+.send{width:42px;height:42px;border-radius:50%;border:0;background:var(--pri);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.send:disabled{opacity:.45;cursor:default}
+.foot{text-align:center;font-size:10.5px;color:var(--mut);padding:0 0 8px}
+</style></head>
+<body>
+<div class="chat">
+  <div class="top">
+    <div class="av">🎓<i></i></div>
+    <div class="grow"><h1>ABES Assist</h1><small>ABES Student Support · Online</small></div>
+    <button class="ib" id="menuBtn" title="Menu" aria-label="Menu">⋮</button>
+  </div>
+  <div class="menu" id="menu">
+    <button data-a="human">🙋 Talk to a human agent</button>
+    <button data-a="optout">🔒 Opt out of data logging</button>
+    <button data-a="end">🔄 End chat &amp; start new</button>
+  </div>
+  <div class="note" id="note"><span>🔒 We don't store your messages or personal details. Opt out anytime from the menu.</span><button id="noteX" aria-label="Dismiss">✕</button></div>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <form class="comp" id="f" autocomplete="off">
+    <input id="q" placeholder="Type your question…" maxlength="500" aria-label="Message">
+    <button class="send" id="sendBtn" aria-label="Send"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6l-.1 6.5L15 12 3.3 13.9z"/></svg></button>
+  </form>
+  <div class="foot">ABES Assist is an AI assistant and can make mistakes. For urgent matters, ask for a human.</div>
+</div>
+<script>
+var sid=null,busy=false,rated=false;
+var msgs=document.getElementById('msgs'),q=document.getElementById('q'),sendBtn=document.getElementById('sendBtn'),menu=document.getElementById('menu');
+var DEBUG=/[?&]debug/.test(location.search);
+function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function md(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(.+?)\*/g,'<i>$1</i>')}
+function now(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}
+function scroll(){msgs.scrollTop=msgs.scrollHeight}
+function post(u,b){return fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b||{})}).then(function(r){return r.json()})}
+function userMsg(t){
+  var r=document.createElement('div');r.className='row u';r.innerHTML='<div class="bub">'+esc(t)+'</div>';msgs.appendChild(r);
+  var tm=document.createElement('div');tm.className='time r';tm.textContent=now();msgs.appendChild(tm);scroll();
+}
+function botMsg(text,res){
+  var main=text,hand=null,i=text.indexOf('🔴');
+  if(i>-1){main=text.slice(0,i).trim();hand=text.slice(i)}
+  var r=document.createElement('div');r.className='row b';
+  var html='';
+  if(main)html+=md(main);
+  if(hand){
+    var why=(res&&res.reasons&&res.reasons.length)?res.reasons.join(', '):'';
+    var tk=(res&&res.ticket_id)?'<div class="t">Ticket '+esc(res.ticket_id)+'</div>':'';
+    html+='<div class="hand"><div class="h">🔴 Connected to a human agent</div>'+
+      (why?'Reason: '+esc(why)+'<br>':'')+
+      ((res&&res.urgent)?'A staff member will contact you through the student portal as a priority.':'A staff member will contact you through the student portal within one working day.')+'<br>'+tk+'</div>';
+  }
+  if(DEBUG&&res&&res.intent)html+='<div style="font-size:11px;opacity:.6;margin-top:6px">'+esc(res.intent)+' · '+res.confidence+' · '+res.sentiment+' · '+res.latency_ms+' ms</div>';
+  r.innerHTML='<div class="mini">🎓</div><div class="bub">'+html+'</div>';
+  msgs.appendChild(r);
+  var tm=document.createElement('div');tm.className='time';tm.textContent='ABES Assist · '+now();msgs.appendChild(tm);
+  if(res&&res.suggestions&&res.suggestions.length)chips(res.suggestions);
+  scroll();
+}
+function chips(list){
+  var c=document.createElement('div');c.className='chips';
+  list.forEach(function(s){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=s;b.onclick=function(){c.remove();send(s)};c.appendChild(b)});
+  msgs.appendChild(c);scroll();
+}
+function typing(on){
+  var t=document.getElementById('typ');
+  if(on&&!t){t=document.createElement('div');t.id='typ';t.className='row b typing';t.innerHTML='<div class="mini">🎓</div><div class="bub"><span></span><span></span><span></span></div>';msgs.appendChild(t);scroll()}
+  if(!on&&t)t.remove();
+}
+function ratingCard(){
+  if(rated||document.getElementById('rc'))return;
+  var d=document.createElement('div');d.className='rate';d.id='rc';d.innerHTML='How was your experience?<div class="s"></div>';
+  var s=d.querySelector('.s');
+  for(var i=1;i<=5;i++)(function(i){var b=document.createElement('button');b.type='button';b.textContent='★';b.title=i+' / 5';
+    b.onclick=function(){rated=true;post('/api/rate',{session_id:sid,rating:i});[].forEach.call(s.children,function(x,j){x.classList.toggle('on',j<i)});d.querySelector('.s').insertAdjacentHTML('afterend','<div>Thanks for your feedback! 🙏</div>')};
+    s.appendChild(b)})(i);
+  msgs.appendChild(d);scroll();
+}
+function send(t){
+  t=(t||'').trim();if(!t||busy)return;
+  busy=true;sendBtn.disabled=true;q.value='';
+  document.querySelectorAll('.chips').forEach(function(c){c.remove()});
+  userMsg(t);typing(true);
+  var started=Date.now();
+  post('/api/chat',{session_id:sid,message:t}).then(function(r){
+    var wait=Math.max(0,700-(Date.now()-started));
+    setTimeout(function(){
+      typing(false);botMsg(r.reply||'Sorry, something went wrong.',r);
+      if(r.escalated||/\b(bye|thanks?|thank you|shukriya)\b/i.test(t))setTimeout(ratingCard,900);
+      busy=false;sendBtn.disabled=false;q.focus();
+    },wait);
+  }).catch(function(){typing(false);botMsg("Sorry, I couldn't reach the server. Please try again.");busy=false;sendBtn.disabled=false});
+}
+function start(){
+  msgs.innerHTML='';rated=false;
+  var d=document.createElement('div');d.className='day';d.textContent='Today';msgs.appendChild(d);
+  post('/api/session').then(function(r){
+    sid=r.session_id;typing(true);
+    setTimeout(function(){typing(false);
+      botMsg("Hi! 👋 I'm **ABES Assist**, your ABES student support assistant.\n\nI can help with admissions, timetable, fees, exams, hostel, library and complaints. What can I help you with?");
+      chips(['How do I pay my fees online?','Download hall ticket','Hostel room application','Library timings','Talk to a human']);
+    },600);
+  });
+}
+document.getElementById('f').onsubmit=function(e){e.preventDefault();send(q.value)};
+document.getElementById('menuBtn').onclick=function(e){e.stopPropagation();menu.classList.toggle('open')};
+document.addEventListener('click',function(){menu.classList.remove('open')});
+menu.onclick=function(e){
+  var a=e.target.getAttribute('data-a');if(!a)return;
+  if(a==='human')send('I want to talk to a human agent');
+  if(a==='optout')post('/api/optout',{session_id:sid}).then(function(r){botMsg('🔒 '+r.message)});
+  if(a==='end')post('/api/end',{session_id:sid}).then(start);
+};
+document.getElementById('noteX').onclick=function(){document.getElementById('note').style.display='none'};
+start();q.focus();
+</script>
+</body></html>

@@ -1,0 +1,41 @@
+{
+  "escalation": {
+    "n": 42,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "confusion": [
+      [
+        24,
+        0
+      ],
+      [
+        0,
+        18
+      ]
+    ],
+    "false_positives": [],
+    "false_negatives": []
+  },
+  "faq_retrieval": {
+    "n": 28,
+    "top1_accuracy": 0.964,
+    "misses": [
+      [
+        "is there any aid for freshers",
+        null
+      ]
+    ]
+  },
+  "latency_ms": {
+    "mean": 178.75,
+    "p95": 930.31,
+    "max": 1298.7,
+    "n": 70
+  },
+  "privacy": {
+    "raw_text_or_pii_found_in_db": false,
+    "rows_left_after_optout": 0
+  }
+}

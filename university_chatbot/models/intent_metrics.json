@@ -1,0 +1,196 @@
+{
+  "n_base": 288,
+  "n_train_base": 216,
+  "n_train_aug": 991,
+  "n_test": 72,
+  "model_comparison": {
+    "Logistic Regression (word+char TF-IDF)": {
+      "accuracy": 0.8194,
+      "macro_f1": 0.8164
+    },
+    "Linear SVM": {
+      "accuracy": 0.7917,
+      "macro_f1": 0.7888
+    },
+    "Multinomial Naive Bayes": {
+      "accuracy": 0.5972,
+      "macro_f1": 0.5943
+    },
+    "Random Forest": {
+      "accuracy": 0.7639,
+      "macro_f1": 0.7645
+    }
+  },
+  "chosen": "Logistic Regression (word+char TF-IDF)",
+  "test_accuracy": 0.8194,
+  "test_macro_f1": 0.8164,
+  "cv_accuracy_mean": 0.7637,
+  "cv_accuracy_std": 0.0618,
+  "per_class": {
+    "admissions": {
+      "precision": 0.8,
+      "recall": 0.889,
+      "f1-score": 0.842,
+      "support": 9
+    },
+    "exams": {
+      "precision": 0.625,
+      "recall": 0.556,
+      "f1-score": 0.588,
+      "support": 9
+    },
+    "fees": {
+      "precision": 0.818,
+      "recall": 1.0,
+      "f1-score": 0.9,
+      "support": 9
+    },
+    "grievance": {
+      "precision": 0.8,
+      "recall": 0.889,
+      "f1-score": 0.842,
+      "support": 9
+    },
+    "hostel": {
+      "precision": 1.0,
+      "recall": 0.889,
+      "f1-score": 0.941,
+      "support": 9
+    },
+    "library": {
+      "precision": 1.0,
+      "recall": 0.889,
+      "f1-score": 0.941,
+      "support": 9
+    },
+    "out_of_scope": {
+      "precision": 1.0,
+      "recall": 0.556,
+      "f1-score": 0.714,
+      "support": 9
+    },
+    "schedule": {
+      "precision": 0.667,
+      "recall": 0.889,
+      "f1-score": 0.762,
+      "support": 9
+    }
+  },
+  "confidence_in_domain_mean": 0.697,
+  "confidence_oos_mean": 0.682,
+  "threshold_table": {
+    "0.3": {
+      "in_domain_accepted": 0.958,
+      "oos_rejected": 0.062
+    },
+    "0.35": {
+      "in_domain_accepted": 0.889,
+      "oos_rejected": 0.188
+    },
+    "0.4": {
+      "in_domain_accepted": 0.833,
+      "oos_rejected": 0.188
+    },
+    "0.45": {
+      "in_domain_accepted": 0.778,
+      "oos_rejected": 0.312
+    },
+    "0.5": {
+      "in_domain_accepted": 0.708,
+      "oos_rejected": 0.438
+    }
+  },
+  "oos_caught_by_class_or_threshold": 1.0,
+  "confusion_matrix": [
+    [
+      8,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      5,
+      2,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      9,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      8,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      8,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      8,
+      0,
+      0
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      5,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      8
+    ]
+  ],
+  "labels": [
+    "admissions",
+    "exams",
+    "fees",
+    "grievance",
+    "hostel",
+    "library",
+    "out_of_scope",
+    "schedule"
+  ]
+}

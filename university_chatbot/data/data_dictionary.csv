@@ -1,0 +1,12 @@
+column_name,data_type,sample_value_1,sample_value_2,sample_value_3,nullable,description
+session_id,string,S0001,S0002,S0003,No,"Unique anonymous session identifier generated per student conversation (e.g., S0001 to S0500). Contains no personally identifiable information (PII)."
+user_query_type,categorical string,query_type_5,query_type_4,query_type_3,No,Categorical taxonomy tier representing query structure/channel complexity across 5 discrete types (query_type_1 through query_type_5).
+intent,categorical string,grievance,admissions,hostel,No,"Primary student domain topic predicted or logged by the chatbot helpdesk (7 classes: admissions, schedule, fees, exams, grievance, hostel, library)."
+confidence_score,float64,0.682,0.802,0.896,No,"Estimated model confidence score for intent classification, ranging continuously from 0.602 to 0.999 (mean: 0.797)."
+escalated,int64 (binary),0,0,1,No,"Binary indicator of human agent escalation (0 = Handled autonomously by chatbot, 1 = Escalated to university human support staff)."
+user_rating,int64 (ordinal),5,3,1,No,Student post-interaction satisfaction score recorded on a 5-point Likert scale (1 = Very Dissatisfied to 5 = Highly Satisfied).
+confidence_band,categorical string,medium (0.70-0.79),very high (>=0.90),low (<0.70),No,Engineered: confidence_score binned into 4 bands.
+low_confidence,int8 (binary),0,1,0,No,"Engineered: 1 if confidence_score < 0.70 (bot unsure), else 0."
+satisfied,int8 (binary),1,0,1,No,Engineered: 1 if user_rating >= 4 (CSAT numerator).
+dissatisfied,int8 (binary),0,1,0,No,Engineered: 1 if user_rating <= 2.
+query_type_num,int8,5,4,3,No,Engineered: numeric tier (1-5) extracted from user_query_type.
