@@ -2,7 +2,7 @@
 import json, time, tempfile, sqlite3, pathlib, statistics as st
 import numpy as np
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
-from chatbot import UniBot, ROOT
+from chatbot import AbesAssist, ROOT
 
 # (message, should_escalate) – hand-labelled test messages NOT used for rule design
 ESC = [
@@ -38,7 +38,7 @@ FAQ_Q = [  # (paraphrase, substring that must appear in the expected FAQ questio
  ("fine on overdue books","fine for late return"),("how to read ieee papers from home","e-journals and digital resources"),
 ]
 def main():
-    bot = UniBot(db_path=tempfile.mktemp(suffix=".db"))
+    bot = AbesAssist(db_path=tempfile.mktemp(suffix=".db"))
     y, p, lat = [], [], []
     for m, lab in ESC:
         sid = bot.new_session(); r = bot.respond(sid, m); y.append(lab); p.append(int(r["escalated"])); lat.append(r["latency_ms"])

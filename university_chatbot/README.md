@@ -1,4 +1,4 @@
-# UniBot – AI-Powered Chatbot for University Student Support
+# Abes Assist – AI-Powered Chatbot for University Student Support
 HCLTech Career Shaper Programme · Project 30 · Python / Flask / scikit-learn / VADER / SQLite
 
 **What it does:** classifies a student's message into 7 helpdesk intents (+ out-of-scope), returns the best FAQ answer, scores sentiment, and **escalates to a human agent** (red badge + ticket) when the student asks, is very unhappy, reports an incident/safety issue, or the bot repeatedly fails. PII is redacted; message text is never stored; opt-out is built in.

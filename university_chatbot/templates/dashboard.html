@@ -1,8 +1,8 @@
-<!doctype html><html><head><meta charset="utf-8"><title>UniBot Dashboard</title><style>
+<!doctype html><html><head><meta charset="utf-8"><title>Abes Assist Dashboard</title><style>
 body{font-family:system-ui,sans-serif;max-width:760px;margin:30px auto;padding:0 16px;color:#1c2333}
 .k{display:flex;gap:12px;flex-wrap:wrap}.c{flex:1;min-width:140px;border:1px solid #e4e7ec;border-radius:12px;padding:14px}.c b{font-size:26px;display:block}
 table{border-collapse:collapse;width:100%;margin-top:18px}td,th{border-bottom:1px solid #e4e7ec;padding:8px;text-align:left}
 @media(prefers-color-scheme:dark){body{background:#0f1420;color:#e8ecf5}.c,td,th{border-color:#2a3550}}</style></head><body>
-<h2>UniBot – anonymous usage dashboard</h2><p>Only aggregated metadata is stored (no message text, no PII).</p><div class="k" id="k"></div><table id="t"></table>
+<h2>Abes Assist – anonymous usage dashboard</h2><p>Only aggregated metadata is stored (no message text, no PII).</p><div class="k" id="k"></div><table id="t"></table>
 <script>fetch('/api/stats').then(r=>r.json()).then(s=>{k.innerHTML=[['Conversations',s.total],['Escalated',s.escalated],['Escalation rate',(s.escalation_rate*100).toFixed(1)+'%'],['Avg rating',s.avg_rating??'–'],['Open tickets',s.open_tickets]].map(([a,b])=>`<div class=c><small>${a}</small><b>${b}</b></div>`).join('');
 t.innerHTML='<tr><th>Intent</th><th>Count</th><th>Escalated</th><th>Avg confidence</th></tr>'+s.by_intent.map(x=>`<tr><td>${x.intent}</td><td>${x.count}</td><td>${x.escalated}</td><td>${x.avg_conf}</td></tr>`).join('')})</script></body></html>

@@ -1,12 +1,12 @@
-"""Flask web app + REST API for UniBot.  Run:  python src/app.py   ->  http://127.0.0.1:5000"""
+"""Flask web app + REST API for Abes Assist.  Run:  python src/app.py   ->  http://127.0.0.1:5000"""
 import pathlib, sys
 from flask import Flask, jsonify, request, render_template
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from chatbot import UniBot, ROOT
+from chatbot import AbesAssist, ROOT
 
 def create_app(db_path=None, live=True):
     app = Flask(__name__, template_folder=str(ROOT / "templates"))
-    bot = UniBot(db_path=db_path, live=live)
+    bot = AbesAssist(db_path=db_path, live=live)
     app.bot = bot
 
     @app.get("/")

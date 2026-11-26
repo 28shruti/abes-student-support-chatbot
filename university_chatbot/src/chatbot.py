@@ -36,12 +36,12 @@ INCIDENT = re.compile(r"\b(i|we|me|my)\b.{0,40}\b(was|am|been|being|got|get|gett
 
 SMALLTALK = [
  (re.compile(r"^\s*(hi+|hello+|hey+|namaste|good (morning|afternoon|evening))\b[\s!.,]*$", re.I),
-  "Hello! 👋 I'm UniBot, the university student-support assistant. I can help with admissions, timetable & schedule, fees, exams, hostel, library and complaints. What would you like to know?"),
+  "Hello! 👋 I'm Abes Assist, the university student-support assistant. I can help with admissions, timetable & schedule, fees, exams, hostel, library and complaints. What would you like to know?"),
  (re.compile(r"^\s*(thanks?|thank you|thx|ok thanks|shukriya|dhanyavad)\b.*$", re.I), "You're welcome! 😊 Is there anything else I can help you with?"),
  (re.compile(r"^\s*(bye|goodbye|see you|that'?s all|no more|nothing else)\b.*$", re.I), "Goodbye! Take care. You can rate this chat below. Session data is cleared when you close the chat."),
  (re.compile(r"^\s*(how are you|how r u|kaise ho|kya haal)\b.*$", re.I), "I'm doing well, thank you! 😊 I'm an AI assistant for university queries. What would you like to know — fees, exams, hostel, library, admissions?"),
  (re.compile(r"\b(who are you|what can you do|what is your name|help me$|^help$)\b", re.I),
-  "I'm UniBot, an AI assistant for university students. I answer FAQs on admissions, schedule, fees, exams, grievance, hostel and library, and I hand you over to a human agent when I can't help or when you ask me to."),
+  "I'm Abes Assist, an AI assistant for university students. I answer FAQs on admissions, schedule, fees, exams, grievance, hostel and library, and I hand you over to a human agent when I can't help or when you ask me to."),
 ]
 
 def _vader():
@@ -101,7 +101,7 @@ LIVE_ANSWERS = {
     "How do I apply for admission": "admission",
 }
 
-class UniBot:
+class AbesAssist:
     def __init__(self, db_path=None, model_path=None, faq_path=None, live=False):
         self.model = joblib.load(model_path or ROOT / "models" / "intent_model.joblib")
         self.sent = _vader()

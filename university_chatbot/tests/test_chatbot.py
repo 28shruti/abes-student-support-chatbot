@@ -1,12 +1,12 @@
 import sys, pathlib, tempfile, unittest
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "src"))
-from chatbot import UniBot
+from chatbot import AbesAssist
 from nlp_utils import redact_pii
 from app import create_app
 
 class TestEngine(unittest.TestCase):
     @classmethod
-    def setUpClass(cls): cls.bot = UniBot(db_path=tempfile.mktemp(suffix=".db"))
+    def setUpClass(cls): cls.bot = AbesAssist(db_path=tempfile.mktemp(suffix=".db"))
     def ask(self, m): return self.bot.respond(self.bot.new_session(), m)
     def test_fee_intent(self):
         r = self.ask("How do I pay my fees online?"); self.assertEqual(r["intent"], "fees"); self.assertFalse(r["escalated"])
@@ -86,7 +86,7 @@ class TestLiveSite(unittest.TestCase):
 
 class TestBotUsesWebsiteData(unittest.TestCase):
     @classmethod
-    def setUpClass(cls): cls.bot = UniBot(db_path=tempfile.mktemp(suffix=".db"))
+    def setUpClass(cls): cls.bot = AbesAssist(db_path=tempfile.mktemp(suffix=".db"))
     def ask(self, m): return self.bot.respond(self.bot.new_session(), m)["reply"]
     def test_fee_question_shows_real_numbers(self): self.assertIn("1,81,200", self.ask("what is the fee structure"))
     def test_hostel_fee_numbers(self): r = self.ask("what is the hostel fee"); self.assertIn("1,36,500", r); self.assertIn("1,77,500", r)
@@ -95,10 +95,10 @@ class TestBotUsesWebsiteData(unittest.TestCase):
         r = self.ask("what's the bca fee structure"); self.assertNotIn("1,81,200", r.split("(For reference")[0]); self.assertIn("BCA", r)
     def test_btech_fee_still_answered(self): self.assertIn("1,81,200", self.ask("btech fee"))
     def test_programme_tab_used_when_known(self):
-        b = UniBot(db_path=tempfile.mktemp(suffix=".db")); b.site.facts["fee_tabs"] = {"BCA": {"heads": [["Tuition Fee", 5000]], "extras": [], "total": 5000}}
+        b = AbesAssist(db_path=tempfile.mktemp(suffix=".db")); b.site.facts["fee_tabs"] = {"BCA": {"heads": [["Tuition Fee", 5000]], "extras": [], "total": 5000}}
         r = b.respond(b.new_session(), "bca fee structure")["reply"]; self.assertIn("Rs. 5,000", r); self.assertNotIn("1,81,200", r)
     def test_identical_table_gets_a_confirm_note(self):
-        b = UniBot(db_path=tempfile.mktemp(suffix=".db")); same = b.site.facts["fee"]
+        b = AbesAssist(db_path=tempfile.mktemp(suffix=".db")); same = b.site.facts["fee"]
         b.site.facts["fee_tabs"] = {"M.Tech": dict(same), "BCA": {"heads": [["Tuition Fee", 95000]], "extras": [], "total": 95000}}
         self.assertIn("exactly the same fee table", b.respond(b.new_session(), "m.tech fee")["reply"])
         self.assertNotIn("exactly the same fee table", b.respond(b.new_session(), "bca fee")["reply"])

@@ -13,7 +13,7 @@ def arr(ax, p, q, t="", off=(0, 0.1), color="#333", ls="-"):
 
 # ---- System block diagram ----
 fig, ax = plt.subplots(figsize=(12, 6.3)); ax.set_xlim(0, 12); ax.set_ylim(0, 6.3); ax.axis("off")
-ax.set_title("Figure 1 – UniBot system block diagram", fontsize=13, weight="bold")
+ax.set_title("Figure 1 – Abes Assist system block diagram", fontsize=13, weight="bold")
 box(ax, 0.2, 2.6, 1.7, 1.1, "Student\n(Web chat UI)\nHTML / JS", "#fff4d6", "#b7791f", bold=True)
 box(ax, 2.5, 2.6, 1.7, 1.1, "Flask REST API\n/api/chat\n/api/rate /optout", "#e8efff", bold=True)
 box(ax, 4.8, 4.5, 1.9, 1.0, "1. PII redaction\n(regex: e-mail, phone,\nAadhaar, card)", "#e6f6ec", "#2f855a")

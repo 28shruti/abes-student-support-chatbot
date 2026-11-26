@@ -40,7 +40,7 @@ def inr(n):
 def fetch_html(url=PAGE, timeout=8):
     if requests is None: raise RuntimeError("requests / beautifulsoup4 not installed")
     if urlparse(url).hostname not in ALLOWED_HOSTS or urlparse(url).scheme != "https": raise ValueError("URL not allowed")
-    r = requests.get(url, timeout=timeout, headers={"User-Agent": "UniBot-student-project/1.0 (educational prototype)"})
+    r = requests.get(url, timeout=timeout, headers={"User-Agent": "Abes Assist-student-project/1.0 (educational prototype)"})
     r.raise_for_status()
     if len(r.content) > 3_000_000: raise ValueError("page too large")
     return r.text
